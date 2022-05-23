@@ -1,0 +1,160 @@
+.footer {
+  text-align: center;
+  background-color: $second-background-color;
+  padding: 60px 0;
+  &__container {
+    @include mediamin(768px) {
+      @include display(flex, baseline, null);
+      flex-wrap: wrap;
+    }
+    @include mediamin(1200px) {
+      @include display(flex, baseline, null);
+      flex-wrap: nowrap;
+    }
+  }
+  &__logo {
+    color: $color-third;
+    font-family: "Raleway";
+    @include font(700, 26px, 1.2, null);
+    margin-bottom: 20px;
+    display: block;
+  }
+  &__web {
+    color: $color-logo-focus;
+  }
+  &__adress {
+    @media screen and (min-width: 768px) and (max-width: 1199px) {
+      margin-left: 76px;
+      margin-right: 165px;
+    }
+  }
+}
+.footer-nav {
+  margin-bottom: 60px;
+  &__item {
+    margin-bottom: 9px;
+  }
+  &__item:last-child {
+    margin-bottom: 0;
+  }
+  &__address {
+    font-style: normal;
+    line-height: 1.7;
+    color: $color-third;
+  }
+  &__mail,
+  &__tel {
+    font-style: normal;
+    line-height: 1.7;
+    color: $mailtel-color;
+    transition: color $time-transition $cubic-bezier;
+    &:hover,
+    &:focus {
+      color: $color-logo-focus;
+    }
+  }
+}
+.footer__soccontact {
+  margin-bottom: 60px;
+  @include mediamin(1200px) {
+    margin-left: 70px;
+  }
+}
+.footer-contact {
+  margin-right: auto;
+  &__title {
+    display: block;
+    line-height: 1.14;
+    text-transform: uppercase;
+    color: $color-third;
+    margin-bottom: 20px;
+  }
+  &__item:not(:last-child) {
+    margin-right: 10px;
+  }
+  &__link {
+    @include display(flex, center, center);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    fill: $color-third;
+    transition: fill $time-transition $cubic-bezier,
+      background-color $time-transition $cubic-bezier;
+    &:hover,
+    &:focus {
+      background-color: $color-logo-focus;
+    }
+  }
+  &__list {
+    @include display(flex, null, center);
+  }
+  &__link:hover &__icon,
+  &__link:focus &__icon {
+    fill: $color-third;
+  }
+}
+.footer-modal {
+  &__form {
+    @include mediamin(1200px) {
+      @include display(flex, center, center);
+    }
+  }
+  @media screen and (min-width: 768px) and (max-width: 1199px) {
+    margin: 0 auto;
+  }
+  &__title {
+    @include mediamin(1200px) {
+      text-align: start;
+    }
+    display: block;
+    line-height: 1.14;
+    text-transform: uppercase;
+    color: $color-third;
+    margin-bottom: 20px;
+  }
+  &__button {
+    margin: 0 auto;
+    padding: 10px 28px;
+    background-color: $color-logo-focus;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    border: none;
+    @include font(700, 16px, 1.88, 0.06em);
+    @include display(flex, center, center);
+    color: $color-third;
+  }
+  &__input {
+    width: 100%;
+    @include mediamin(768px) {
+      width: 450px;
+    }
+    @include mediamax(1199px) {
+      margin-bottom: 20px;
+    }
+    @include mediamin(1200px) {
+      width: 358px;
+    }
+    height: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+    border-radius: 4px;
+    background-color: $second-background-color;
+
+    padding-left: 16px;
+    outline: none;
+    transition: border-color $time-transition $cubic-bezier;
+    color: $color-third;
+    &:hover,
+    &:focus {
+      border-color: $color-logo-focus;
+    }
+    @include mediamin(1200px) {
+      margin-right: 12px;
+    }
+  }
+  &__icon {
+    margin-left: 10px;
+    fill: $color-third;
+  }
+}

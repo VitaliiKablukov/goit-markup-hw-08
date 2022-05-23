@@ -1,0 +1,154 @@
+.header {
+  padding-top: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #ececec;
+  @media screen and (min-width: 768px) {
+    padding-top: 21px;
+    padding-bottom: 21px;
+  }
+  @media screen and (min-width: 1200px) {
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+  &__navigation {
+    @include mediamax(1199px) {
+      width: 100%;
+    }
+  }
+}
+.navigation {
+  @include display(flex, center, null);
+  &__logo {
+    font-family: "Raleway";
+    margin-right: 88px;
+    @include font(700, 24px, 1.17, null);
+    @media screen and (min-width: 1200px) {
+      @include font(700, 26px, 1.2, null);
+      margin-right: 93px;
+      @include display(flex, center, center);
+    }
+    color: $logo-header-color;
+    text-decoration: none;
+  }
+  &__web {
+    color: $color-logo-focus;
+  }
+}
+/* header list */
+.header__container {
+  @media screen and (max-width: 767px) {
+    position: relative;
+    flex-wrap: wrap;
+    @include display(flex, center, null);
+  }
+  @media screen and (min-width: 768px) {
+    @include display(flex, center, null);
+  }
+  @include mediamin(1200px) {
+    @include display(flex, center, center);
+  }
+}
+.sitenav-list {
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+  list-style: none;
+  text-decoration: none;
+  display: flex;
+  &__link {
+    position: relative;
+    padding-top: 32px;
+    padding-bottom: 32px;
+    transition: color $time-transition $cubic-bezier;
+    @include font(500, null, 1.14, 0.02em);
+    color: $color-second;
+    &.current {
+      color: $color-logo-focus;
+    }
+    &.current::after {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 4px;
+      border-radius: 2px;
+      left: 0;
+      bottom: 0;
+      background-color: $color-logo-focus;
+    }
+    &:hover,
+    &:focus {
+      color: $color-logo-focus;
+    }
+  }
+  &__item {
+    @include font(500, null, 1.14, 0.02em);
+    color: $color-second;
+  }
+  &__item:not(:last-child) {
+    margin-right: 50px;
+  }
+}
+.contact-list {
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  @include mediamin(1200px) {
+    flex-direction: row;
+  }
+  margin-right: 0;
+  margin-left: auto;
+  list-style: none;
+  text-decoration: none;
+  &__item:not(:last-child) {
+    margin-bottom: 10px;
+  }
+  @include mediamin(1200px) {
+    &__item:not(:last-child) {
+      margin-right: 50px;
+    }
+  }
+
+  &__mail,
+  &__tel {
+    @include font(500, null, 1.14, 0.02em);
+    @include display(flex, center, center);
+
+    color: $color-first;
+    fill: $color-first;
+    transition: color $time-transition $cubic-bezier;
+    @include mediamin(768px) {
+      @include font(500, 12px, 1.167, 0.02em);
+    }
+    &:hover,
+    &:focus {
+      color: $color-logo-focus;
+    }
+  }
+  &__icontel {
+    @include mediamax(1199px) {
+      width: 10px;
+      height: 14px;
+    }
+  }
+  &__iconmail {
+    @include mediamax(1199px) {
+      width: 14px;
+      height: 10px;
+    }
+  }
+  &__iconmail,
+  &__icontel {
+    margin-right: 10px;
+    transition: fill $time-transition $cubic-bezier;
+  }
+  &__mail:hover &__iconmail,
+  &__mail:focus &__iconmail,
+  &__tel:hover &__icontel,
+  &__tel:focus &__icontel {
+    fill: $color-logo-focus;
+  }
+}

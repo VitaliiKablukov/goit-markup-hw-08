@@ -1,0 +1,10 @@
+body {
+  background-color: var(--first-background-color);
+  font-family: Roboto, Raleway, sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.03em;
+  color: $color-first;
+}
+.no-scroll {
+  overflow: hidden;
+}

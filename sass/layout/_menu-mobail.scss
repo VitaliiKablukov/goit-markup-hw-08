@@ -1,0 +1,120 @@
+.menu-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 2;
+  overflow: auto;
+  @include mediamin(768px) {
+    display: none;
+    visibility: hidden;
+  }
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  padding: 48px 40px;
+  top: 0;
+  left: 0;
+  background-color: $first-background-color;
+  transform: scale(1) rotate(-720deg);
+  transition: transform $time-transition $cubic-bezier;
+}
+.mob-menu.is-hidden .menu-content {
+  transform: scale(0.1) rotate(0);
+}
+.menu-open-btn {
+  padding: 8px 12px;
+  background-color: $first-background-color;
+  border: none;
+  margin-left: auto;
+  margin-right: 0;
+  transition: fill $time-transition $cubic-bezier;
+  @include mediamin(768px) {
+    display: none;
+    visibility: hidden;
+  }
+  &:hover .menu-open__icon,
+  &:focus .menu-open__icon {
+    fill: $color-logo-focus;
+  }
+}
+.menu-close-btn {
+  background-color: $first-background-color;
+  border: none;
+  margin-left: auto;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  transition: fill $time-transition $cubic-bezier;
+  &:hover .menu-content__icon,
+  &:focus .menu-content__icon {
+    fill: $color-logo-focus;
+  }
+}
+.mobsitenav-list {
+  list-style: none;
+  text-decoration: none;
+  &__link {
+    position: relative;
+    padding-top: 32px;
+    padding-bottom: 32px;
+    transition: color $time-transition $cubic-bezier;
+    @include font(500, null, 1.14, 0.02em);
+    color: $color-second;
+    &.current {
+      color: $color-logo-focus;
+    }
+    &:hover,
+    &:focus {
+      color: $color-logo-focus;
+    }
+  }
+  &__item {
+    @include font(500, 40px, 1.18, 0.02em);
+    color: $color-second;
+  }
+  &__item:not(:last-child) {
+    margin-bottom: 32px;
+  }
+}
+.mobcontact-list {
+  list-style: none;
+  text-decoration: none;
+  margin-bottom: 64px;
+
+  &__item:first-child {
+    margin-bottom: 32px;
+  }
+  &__tel {
+    @include font(500, 34px, 1.18, 0.02em);
+    color: $color-logo-focus;
+  }
+  &__mail {
+    @include font(500, 24px, 1.17, 0.02em);
+    color: $color-first;
+    margin-bottom: 62px;
+    &:hover,
+    &:focus {
+      color: $color-logo-focus;
+    }
+  }
+}
+
+.mobcontact-soclist {
+  @include display(flex, center, flex-start);
+  flex-wrap: wrap;
+  &__item {
+    @include display(flex, center, center);
+  }
+  &__item:not(:last-child)::after {
+    content: "";
+    width: 22px;
+    height: 0;
+    border: 1px solid rgba(33, 33, 33, 0.2);
+    transform: rotate(90deg);
+    display: block;
+  }
+  &__link {
+    @include font(500, 18px, 1.22, 0.02em);
+    color: $color-logo-focus;
+  }
+}

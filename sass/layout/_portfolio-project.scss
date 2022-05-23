@@ -1,0 +1,82 @@
+.portfolio-project {
+  & img {
+    width: 100%;
+  }
+  @include mediamin(768px) {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: $margin-section-minus;
+    margin-bottom: $margin-section-minus;
+  }
+
+  &__item {
+    @include mediamax(768px) {
+      &:not(:last-child) {
+        margin-bottom: 30px;
+      }
+    }
+
+    @include mediamin(768px) {
+      width: calc(100% / 2 - 30px);
+      margin-left: $margin-between;
+      margin-bottom: $margin-between;
+    }
+    @include mediamin(1200px) {
+      width: calc(100% / 3 - 30px);
+      margin-left: $margin-between;
+      margin-bottom: $margin-between;
+    }
+
+    background: $first-background-color;
+    box-sizing: border-box;
+  }
+  &__container {
+    position: relative;
+    overflow: hidden;
+  }
+  &__text {
+    position: absolute;
+    background-color: $color-logo-focus;
+    color: $color-third;
+    height: 100%;
+    top: 0;
+    @include display(flex, center, center);
+    @include font(null, 18px, 1.56, null);
+    padding-left: 24px;
+    padding-right: 24px;
+    transform: translateY(100%);
+    transition: transform $time-transition $cubic-bezier;
+  }
+  &__link {
+    display: block;
+    &:hover,
+    &:focus {
+      box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12),
+        0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
+    }
+  }
+  &__link:hover &__text,
+  &__link:focus &__text {
+    transform: translateY(0%);
+  }
+}
+.project-name {
+  padding: 20px 24px;
+  border-bottom: $border-portfolio;
+  border-left: $border-portfolio;
+  border-right: $border-portfolio;
+  &__title {
+    @include font(null, 18px, 2, 0.06em);
+    color: $color-second;
+    margin-bottom: 4px;
+  }
+  &__text {
+    @include font(null, 16px, 1.9, null);
+    color: $color-first;
+  }
+  @media screen and (min-width: 768px) and (max-width: 1199px) {
+    &__tablet {
+      padding-bottom: 56px;
+    }
+  }
+}

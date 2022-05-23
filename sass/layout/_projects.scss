@@ -1,0 +1,36 @@
+.project {
+  @media screen and (max-width: 1200px) {
+    display: none;
+  }
+  padding-top: 0;
+  &__title {
+    @include font(null, 36px, 1.2, null);
+    text-align: center;
+    color: $color-second;
+    margin-bottom: 50px;
+  }
+  &__list {
+    @include display(flex, null, null);
+    margin-left: $margin-section-minus;
+  }
+  &__item {
+    width: calc(100% / 3 - 30px);
+    margin-left: $margin-between;
+    position: relative;
+  }
+  &__container {
+    @include display(flex, center, center);
+    position: absolute;
+    height: 70px;
+    width: 100%;
+    bottom: 0;
+    background-color: rgba(47, 48, 58, 0.8);
+    text-align: center;
+  }
+  &__text {
+    @include font(700, null, 1.14, null);
+    text-align: center;
+    text-transform: uppercase;
+    color: $color-third;
+  }
+}
